@@ -1,0 +1,62 @@
+service: demo-db
+provider:
+  name: aws
+  runtime: python3.6
+  region: us-east-1
+  versionFunctions: false
+
+functions:
+  adListings:
+    handler: handler.ad_listings
+    events:
+      - http:
+          path: db/fake/adListings
+          method: get
+  adspaceListings:
+    handler: handler.adspace_listings
+    events:
+      - http:
+          path: db/fake/adspaceListings
+          method: get
+  advertiserDailyData:
+    handler: handler.advertiser_daily_data
+    events:
+      - http:
+          path: db/fake/advertiserDailyData
+          method: get
+  publisherDailyData:
+    handler: handler.publisher_daily_data
+    events:
+      - http:
+          path: db/fake/publisherDailyData
+          method: get
+  xqcImpressions:
+    handler: handler.xqc_impressions
+    events:
+      - http:
+          path: db/fake/xqcImpressions
+          method: get
+  eqcImpressions:
+    handler: handler.eqc_impressions
+    events:
+      - http:
+          path: db/fake/eqcImpressions
+          method: get
+  xqcClicks:
+    handler: handler.xqc_clicks
+    events:
+      - http:
+          path: db/fake/xqcClicks
+          method: get
+  eqcClicks:
+    handler: handler.eqc_clicks
+    events:
+      - http:
+          path: db/fake/eqcClicks
+          method: get
+  db:
+    handler: handler.db
+    events:
+      - http:
+          path: db/fake/db
+          method: get
